@@ -47,6 +47,7 @@ if (secureTransfer) numberOfProxies = 1; else numberOfProxies = 0;
  * Controllers (route handlers).
  */
 const homeController = require('./controllers/home');
+const testController = require('./controllers/test');
 const userController = require('./controllers/user');
 const apiController = require('./controllers/api');
 const contactController = require('./controllers/contact');
@@ -151,6 +152,7 @@ app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/account/verify', passportConfig.isAuthenticated, userController.getVerifyEmail);
+app.get('/test', testController.index);
 app.get('/account/verify/:token', passportConfig.isAuthenticated, userController.getVerifyEmailToken);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
